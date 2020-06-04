@@ -2,34 +2,13 @@ import * as WebBrowser from "expo-web-browser";
 import * as React from "react";
 
 import { Platform, StyleSheet, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 
-import { MonoText } from "../components/StyledText";
-import NewsCard from "../components/NewsCard";
+import ListNewsCard from "../components/ListNewsCard";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <NewsCard />
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}
-        >
-          <MonoText style={styles.codeHighlightText}>
-            navigation/BottomTabNavigator.js
-          </MonoText>
-        </View>
-      </View>
+      <ListNewsCard />
     </View>
   );
 }
