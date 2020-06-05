@@ -2,6 +2,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as React from "react";
 
 import { Platform, StyleSheet, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 import ListNewsCard from "../components/ListNewsCard";
 

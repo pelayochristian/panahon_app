@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Text } from "react-native";
-import { Card, Button } from "react-native-elements";
-
+import { Image, View, StyleSheet } from "react-native";
+import { Card, Button, Icon, Text } from "react-native-elements";
+import moment from "moment";
 /**
  *This is the component for List of News Cards.
  *
@@ -24,32 +24,125 @@ export class NewsCard extends Component {
    * @memberof NewsCard
    */
   getNewsImage = (data) => {
-    if (data.trim() == "") {
+    if (data == null || data.trim() == "") {
       return require("../assets/images/no-image.png");
     } else {
       return { uri: this.props.news.urlToImage };
     }
   };
 
+  /**
+   * Method to format a date to MMMMM DD, YYYY
+   *
+   * @since 2020-06-05
+   * @memberof NewsCard
+   */
+  formatDate = (date) => {
+    return moment(date).utc().format("MMMM DD, h:mm A");
+  };
+
   render() {
     return (
-      <Card
-        title={this.props.news.title}
-        image={(this, this.getNewsImage(this.props.news.urlToImage))}
-      >
-        <Text style={{ marginBottom: 10 }}>{this.props.news.description}</Text>
-        <Button
-          buttonStyle={{
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-          }}
-          title="READ MORE"
-        />
+      <Card containerStyle={styles.newsCard}>
+        <View style={styles.container}>
+          {/* News Banner Image */}
+          <View style={styles.colOne}>
+            <Image
+              source={this.getNewsImage(this.props.news.urlToImage)}
+              style={styles.newsImage}
+            />
+          </View>
+
+          {/* News Content */}
+          <View style={styles.colTwo}>
+            {/* Date published */}
+            <View style={styles.top}>
+              <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+                <Icon
+                  size={11}
+                  style={{ marginRight: 5 }}
+                  name="calendar"
+                  type="font-awesome"
+                  color="#E0E0E0"
+                />
+                <Text h4 h4Style={styles.newsSource}>
+                  {this.formatDate(this.props.news.publishedAt)}
+                  {/* {this.props.news.publishedAt} */}
+                </Text>
+              </View>
+            </View>
+
+            {/* News Title */}
+            <Text h4 h4Style={styles.newsTitle}>
+              {this.props.news.title}
+            </Text>
+
+            {/* News Source */}
+            <View style={styles.bottom}>
+              <View style={{ flexDirection: "row" }}>
+                <Icon
+                  size={11}
+                  style={{ marginRight: 5 }}
+                  name="pencil"
+                  type="font-awesome"
+                  color="#E0E0E0"
+                />
+                <Text h4 h4Style={styles.newsSource}>
+                  {this.props.news.source.name}
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
       </Card>
     );
   }
 }
 
 export default NewsCard;
+
+const styles = StyleSheet.create({
+  newsCard: {
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 10,
+    borderRadius: 7,
+  },
+  newsImage: {
+    width: 120,
+    height: 120,
+    borderTopLeftRadius: 7,
+    borderBottomLeftRadius: 7,
+  },
+  newsTitle: {
+    fontSize: 14,
+    fontWeight: "300",
+  },
+  newsSource: {
+    fontWeight: "100",
+    fontSize: 11,
+  },
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  colOne: {
+    width: "40%",
+  },
+  colTwo: {
+    width: "60%",
+  },
+  bottom: {
+    flex: 1,
+    justifyContent: "flex-end",
+    marginBottom: 10,
+  },
+  top: {
+    marginTop: 10,
+    flex: 1,
+    justifyContent: "flex-start",
+  },
+});

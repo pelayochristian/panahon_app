@@ -12,7 +12,7 @@ import { ScrollView } from "react-native-gesture-handler";
  * @since 2020-06-04
  */
 export class ListNewsCard extends Component {
-  BASE_URL = "http://192.168.1.5:8080/news/news-api/";
+  BASE_URL = "http://167.99.155.43:8080/news/news-api/";
 
   constructor() {
     super();
