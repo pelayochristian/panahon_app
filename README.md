@@ -1,5 +1,6 @@
 # Wireframe Layout
 ---
-![](assets/docs/screenshots/news_screen.png)
+![](docs/screenshots/Panahon.jpg)
+![](docs/screenshots/Panahon.png)
 
 # API's
