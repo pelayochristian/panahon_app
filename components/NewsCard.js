@@ -82,7 +82,6 @@ export class NewsCard extends Component {
                     />
                     <Text h4 h4Style={styles.newsSource}>
                       {this.formatDate(this.props.news.publishedAt)}
-                      {/* {this.props.news.publishedAt} */}
                     </Text>
                   </View>
                 </View>

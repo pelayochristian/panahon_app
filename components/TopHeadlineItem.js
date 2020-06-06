@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Image, Card, Icon } from "react-native-elements";
+import moment from "moment";
 
 export default class TopHeadlineItem extends Component {
   constructor(props) {
@@ -21,6 +22,16 @@ export default class TopHeadlineItem extends Component {
     } else {
       return { uri: this.props.news.urlToImage };
     }
+  };
+
+  /**
+   * Method to format a date to MMMMM DD, YYYY
+   *
+   * @since 2020-06-05
+   * @memberof NewsCard
+   */
+  formatDate = (date) => {
+    return moment(date).utc().format("MMMM DD, h:mm A");
   };
 
   render() {
@@ -44,8 +55,23 @@ export default class TopHeadlineItem extends Component {
                 {this.props.news.title}
               </Text>
 
-              {/* News Source */}
+              {/* Published Date */}
               <View style={{ marginTop: 10 }}>
+                <View style={{ flexDirection: "row" }}>
+                  <Icon
+                    size={11}
+                    style={{ marginRight: 5 }}
+                    name="calendar"
+                    type="font-awesome"
+                    color="#E0E0E0"
+                  />
+                  <Text h4 h4Style={styles.newsSource}>
+                    {this.formatDate(this.props.news.publishedAt)}
+                  </Text>
+                </View>
+              </View>
+              {/* News Source */}
+              <View style={{ marginTop: 5 }}>
                 <View style={{ flexDirection: "row" }}>
                   <Icon
                     size={11}
