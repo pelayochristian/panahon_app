@@ -7,8 +7,8 @@ import TopHeadlineItem from "./TopHeadlineItem";
 export default class TopHeadlines extends Component {
   BASE_URL = "http://167.99.155.43:8080/news/news-api/";
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: null,
       loaded: false,

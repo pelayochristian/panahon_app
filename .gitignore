@@ -11,3 +11,12 @@ web-build/
 
 # macOS
 .DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
