@@ -20,7 +20,7 @@ export default class TabButton extends Component {
     const { selectedIndex } = this.state;
 
     return (
-      <View style={{ backgroundColor: "#FFF" }}>
+      <View style={{ backgroundColor: "#FAFAFA" }}>
         <ButtonGroup
           onPress={this.updateIndex}
           selectedIndex={selectedIndex}

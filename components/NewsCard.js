@@ -56,20 +56,35 @@ export class NewsCard extends Component {
           {/* News Content */}
           <View style={styles.colTwo}>
             <View style={{ marginLeft: 10 }}>
-              {/* Date published */}
-              <View style={styles.top}>
-                <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
-                  <Icon
-                    size={11}
-                    style={{ marginRight: 5 }}
-                    name="calendar"
-                    type="font-awesome"
-                    color="#E0E0E0"
-                  />
-                  <Text h4 h4Style={styles.newsSource}>
-                    {this.formatDate(this.props.news.publishedAt)}
-                    {/* {this.props.news.publishedAt} */}
-                  </Text>
+              <View style={{ flexDirection: "row" }}>
+                {/* Category */}
+                <View style={styles.topLeft}>
+                  <View
+                    style={{ flexDirection: "row", alignSelf: "flex-start" }}
+                  >
+                    <View style={styles.newsCategoryWrapper}>
+                      <Text h4 h4Style={styles.newsCategory}>
+                        Sport
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+
+                {/* Date published */}
+                <View style={styles.top}>
+                  <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+                    <Icon
+                      size={11}
+                      style={{ marginRight: 5 }}
+                      name="calendar"
+                      type="font-awesome"
+                      color="#E0E0E0"
+                    />
+                    <Text h4 h4Style={styles.newsSource}>
+                      {this.formatDate(this.props.news.publishedAt)}
+                      {/* {this.props.news.publishedAt} */}
+                    </Text>
+                  </View>
                 </View>
               </View>
 
@@ -122,12 +137,27 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 7,
   },
   newsTitle: {
-    fontSize: 14,
-    fontWeight: "300",
+    fontSize: 16,
+    fontWeight: "400",
+    color: "#455A64",
   },
   newsSource: {
-    fontWeight: "100",
+    fontWeight: "300",
     fontSize: 11,
+    color: "#78909C",
+  },
+  newsCategoryWrapper: {
+    backgroundColor: "#FFA726",
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 3,
+  },
+  newsCategory: {
+    fontWeight: "300",
+    fontSize: 11,
+    color: "#FFF",
   },
   container: {
     flex: 1,
@@ -146,7 +176,13 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     marginBottom: 10,
   },
+
   top: {
+    marginTop: 10,
+    flex: 1,
+    justifyContent: "flex-start",
+  },
+  topLeft: {
     marginTop: 10,
     flex: 1,
     justifyContent: "flex-start",

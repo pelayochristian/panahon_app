@@ -11,11 +11,14 @@ export default class Weather extends Component {
       <View style={styles.weatherContainer}>
         {/* Column 1 */}
         <View style={{ alignSelf: "flex-start", width: "70%" }}>
-          <View style={{ marginLeft: 5 }}>
-            <Text h4 h4Style={{ fontWeight: "300" }}>
+          <View style={{ marginLeft: 10 }}>
+            <Text h4 h4Style={{ fontWeight: "300", color: "#455A64" }}>
               Morning, Christian
             </Text>
-            <Text h4 h4Style={{ fontSize: 18, fontWeight: "300" }}>
+            <Text
+              h4
+              h4Style={{ fontSize: 18, fontWeight: "300", color: "#455A64" }}
+            >
               Here is your news feed
             </Text>
           </View>
@@ -33,7 +36,7 @@ export default class Weather extends Component {
             style={{ alignSelf: "flex-start" }}
             name="cloud"
             type="font-awesome"
-            color="#E0E0E0"
+            color="#FFF"
           />
           <Text
             h4
@@ -42,6 +45,7 @@ export default class Weather extends Component {
               fontWeight: "100",
               alignSelf: "flex-end",
               justifyContent: "center",
+              color: "455A64",
             }}
           >
             {this.getTemperature()}
