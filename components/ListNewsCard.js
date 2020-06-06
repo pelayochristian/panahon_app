@@ -35,7 +35,7 @@ export class ListNewsCard extends Component {
      */
     loadNewsData = (ev) => {
         this.setState({isRefresh: true, loaded: false, error: null});
-        let startDate = moment().format('YYYY-MM-DD');
+        let startDate = moment().subtract(3, "days").startOf("day").format('YYYY-MM-DD');
         let endDate = moment().format('YYYY-MM-DD');
         let url = this.BASE_URL + "everything?query=philippines&startDate=" + startDate + "&endDate=" + endDate;
 
