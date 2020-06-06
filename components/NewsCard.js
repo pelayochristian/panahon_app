@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image, View, StyleSheet } from "react-native";
-import { Card, Button, Icon, Text } from "react-native-elements";
+import { Card, Icon, Text } from "react-native-elements";
 import moment from "moment";
 /**
  *This is the component for List of News Cards.
@@ -55,41 +55,45 @@ export class NewsCard extends Component {
 
           {/* News Content */}
           <View style={styles.colTwo}>
-            {/* Date published */}
-            <View style={styles.top}>
-              <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
-                <Icon
-                  size={11}
-                  style={{ marginRight: 5 }}
-                  name="calendar"
-                  type="font-awesome"
-                  color="#E0E0E0"
-                />
-                <Text h4 h4Style={styles.newsSource}>
-                  {this.formatDate(this.props.news.publishedAt)}
-                  {/* {this.props.news.publishedAt} */}
+            <View style={{ marginLeft: 10 }}>
+              {/* Date published */}
+              <View style={styles.top}>
+                <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+                  <Icon
+                    size={11}
+                    style={{ marginRight: 5 }}
+                    name="calendar"
+                    type="font-awesome"
+                    color="#E0E0E0"
+                  />
+                  <Text h4 h4Style={styles.newsSource}>
+                    {this.formatDate(this.props.news.publishedAt)}
+                    {/* {this.props.news.publishedAt} */}
+                  </Text>
+                </View>
+              </View>
+
+              {/* News Title */}
+              <View style={{ marginTop: 10, marginBottom: 10 }}>
+                <Text h4 h4Style={styles.newsTitle}>
+                  {this.props.news.title}
                 </Text>
               </View>
-            </View>
 
-            {/* News Title */}
-            <Text h4 h4Style={styles.newsTitle}>
-              {this.props.news.title}
-            </Text>
-
-            {/* News Source */}
-            <View style={styles.bottom}>
-              <View style={{ flexDirection: "row" }}>
-                <Icon
-                  size={11}
-                  style={{ marginRight: 5 }}
-                  name="pencil"
-                  type="font-awesome"
-                  color="#E0E0E0"
-                />
-                <Text h4 h4Style={styles.newsSource}>
-                  {this.props.news.source.name}
-                </Text>
+              {/* News Source */}
+              <View style={styles.bottom}>
+                <View style={{ flexDirection: "row" }}>
+                  <Icon
+                    size={11}
+                    style={{ marginRight: 5 }}
+                    name="pencil"
+                    type="font-awesome"
+                    color="#E0E0E0"
+                  />
+                  <Text h4 h4Style={styles.newsSource}>
+                    {this.props.news.source.name}
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -110,8 +114,10 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
   newsImage: {
-    width: 120,
-    height: 120,
+    width: null,
+    height: null,
+    resizeMode: "cover",
+    flex: 1,
     borderTopLeftRadius: 7,
     borderBottomLeftRadius: 7,
   },
@@ -130,10 +136,10 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   colOne: {
-    width: "40%",
+    width: "35%",
   },
   colTwo: {
-    width: "60%",
+    width: "65%",
   },
   bottom: {
     flex: 1,

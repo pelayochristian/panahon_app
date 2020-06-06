@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, View, RefreshControl } from "react-native";
 import NewsCard from "./NewsCard";
 import { ScrollView } from "react-native-gesture-handler";
+import TopHeadlines from "./TopHeadlines";
+import TabButton from "./TabButton";
 
 /**
  *This is the component for NewsCard
@@ -72,6 +74,7 @@ export class ListNewsCard extends Component {
   render() {
     return (
       <ScrollView
+        stickyHeaderIndices={[1]}
         refreshControl={
           <RefreshControl
             refreshing={this.state.isRefresh}
@@ -79,6 +82,8 @@ export class ListNewsCard extends Component {
           />
         }
       >
+        <TopHeadlines />
+        <TabButton />
         {this.state.error && <Text>{this.state.error}</Text>}
         {this.state.data &&
           this.state.data.NewsAPI.map((news) => <NewsCard news={news} />)}

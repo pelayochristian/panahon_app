@@ -1,14 +1,19 @@
 import * as WebBrowser from "expo-web-browser";
 import * as React from "react";
 
-import { Platform, StyleSheet, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { Platform, StyleSheet, View } from "react-native";
+import { Text, Divider } from "react-native-elements";
 
 import ListNewsCard from "../components/ListNewsCard";
+import TabButton from "../components/TabButton";
+import Weather from "../components/Weather";
+import TopHeadlines from "../components/TopHeadlines";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+      <Weather />
+      <Divider style={{ backgroundColor: "#BDBDBD", margin: 12 }} />
       <ListNewsCard />
     </View>
   );
